@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    public float time;
+    [SerializeField]
+    private float time;
 
     void FixedUpdate()
     {
         time += Time.deltaTime;
         if(time> 1)
-        {
-            Destroy(gameObject);
-        }
-    }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("dead"))
         {
             Destroy(gameObject);
         }

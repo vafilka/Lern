@@ -4,10 +4,27 @@ using UnityEngine;
 
 public class puka : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    private float speed;
+
+    [SerializeField]
+    private Rigidbody rb;
+
     void FixedUpdate()
     {
-        transform.localPosition += new Vector3(speed * Time.deltaTime,0 ,0);
-   
+        rb.velocity = new Vector3(speed, 0);
+    }
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

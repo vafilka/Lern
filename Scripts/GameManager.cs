@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private float time;
+    [SerializeField]
+    private GameObject enemy;
+
+    System.Random rand = new System.Random();
+
     void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        time += Time.deltaTime;
+        if (time > 1)
+        {
+            Instantiate(enemy, new Vector3(rand.Next(1, 7), rand.Next(-2, 5), 0), Quaternion.identity);
+            time = 0;
+        }
     }
 }
