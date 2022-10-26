@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
-public class gun : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     [SerializeField]
     private GameObject puka, parant;
